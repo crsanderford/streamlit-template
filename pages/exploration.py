@@ -31,7 +31,8 @@ def exploration_page():
     st.write("let's start by letting our user see exactly what our data looks like.")
 
     # load in your data, precisely as you'd expect.
-    tweets = pd.read_csv('https://raw.githubusercontent.com/crsanderford/Animal-Spirits/master/btc-data/data/btc_tweets_daily_example.csv')
+    tweets = pd.read_csv('https://raw.githubusercontent.com/crsanderford/Animal-Spirits/master/btc-data/data/btc_tweets_daily_example.csv', chunksize=1000)
+    tweets = next(tweets)
 
     st.write("st.write() can do a lot more than you'd think.")
     # This'll display the dataframe as a table.
